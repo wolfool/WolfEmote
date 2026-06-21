@@ -55,7 +55,19 @@ public class EmoteExecutor {
         switch (emote.getType()) {
             case SIT -> sit(player);
             case SLEEP -> sleep(player);
-            default -> playAnimatedEmote(player, emote);
+            default -> {
+                // Try BetterModel animation first
+                boolean modelPlayed = false;
+                if (emote.hasModel() && plugin.getBetterModelHook().isAvailable()) {
+                    modelPlayed = plugin.getBetterModelHook().playAnimation(
+                            player, emote.getModelId(), emote.getAnimation());
+                }
+                // Fallback to particles if model didn't play or fallback enabled
+                boolean fallback = plugin.getConfig().getBoolean("bettermodel.fallback-particles", true);
+                if (!modelPlayed || fallback) {
+                    playAnimatedEmote(player, emote);
+                }
+            }
         }
 
         return true;

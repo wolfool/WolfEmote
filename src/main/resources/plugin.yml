@@ -3,7 +3,8 @@ version: ${version}
 main: kr.wolfool.wolfemote.WolfEmote
 api-version: '1.21'
 authors: [wolfool]
-description: Emote system with sit, dance, wave and more
+description: Emote system with BetterModel animation support
+softdepend: [BetterModel]
 commands:
   emote:
     description: Play an emote

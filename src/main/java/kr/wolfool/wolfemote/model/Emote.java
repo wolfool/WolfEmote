@@ -21,10 +21,12 @@ public class Emote {
     private final Particle particle;
     private final String sound;
     private final int duration; // ticks
+    private final String modelId;    // BetterModel model ID
+    private final String animation;  // BetterModel animation name
 
     public Emote(String id, String display, EmoteType type, String permission,
                  Material material, String description, Particle particle,
-                 String sound, int duration) {
+                 String sound, int duration, String modelId, String animation) {
         this.id = id;
         this.display = display;
         this.type = type;
@@ -34,6 +36,8 @@ public class Emote {
         this.particle = particle;
         this.sound = sound;
         this.duration = duration;
+        this.modelId = modelId;
+        this.animation = animation;
     }
 
     public String getId() { return id; }
@@ -45,6 +49,9 @@ public class Emote {
     public Particle getParticle() { return particle; }
     public String getSound() { return sound; }
     public int getDuration() { return duration; }
+    public String getModelId() { return modelId; }
+    public String getAnimation() { return animation; }
     public boolean hasParticle() { return particle != null; }
     public boolean hasSound() { return sound != null && !sound.isEmpty(); }
+    public boolean hasModel() { return modelId != null && !modelId.isEmpty() && animation != null && !animation.isEmpty(); }
 }

@@ -6,9 +6,17 @@ cooldown: 3
 # Emote definitions
 # type: SIT, WAVE, DANCE, BOW, CRY, LAUGH, POINT, SLEEP, CLAP, FACEPALM
 # permission: Required permission (empty = wolfemote.use)
-# particle: Particle effect
+# particle: Particle effect (fallback when BetterModel unavailable)
 # sound: Sound to play
 # duration: Duration in ticks (for animated emotes)
+# model-id: BetterModel model ID (optional, requires BetterModel)
+# animation: BetterModel animation name (optional)
+#
+# BetterModel settings
+bettermodel:
+  enabled: true
+  # Fallback to particles if model animation fails
+  fallback-particles: true
 emotes:
   sit:
     display: "앉기"
@@ -19,6 +27,8 @@ emotes:
     particle: NONE
     sound: ""
     duration: 0
+    model-id: ""
+    animation: ""
 
   wave:
     display: "인사"
@@ -29,6 +39,8 @@ emotes:
     particle: HEART
     sound: "minecraft:entity.villager.ambient"
     duration: 30
+    model-id: "emote_player"
+    animation: "wave"
 
   dance:
     display: "춤추기"
@@ -39,6 +51,8 @@ emotes:
     particle: NOTE
     sound: "minecraft:block.note_block.bell"
     duration: 60
+    model-id: "emote_player"
+    animation: "dance"
 
   bow:
     display: "인사(절)"

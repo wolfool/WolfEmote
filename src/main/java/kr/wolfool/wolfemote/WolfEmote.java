@@ -1,6 +1,7 @@
 package kr.wolfool.wolfemote;
 
 import kr.wolfool.wolfemote.command.EmoteCommand;
+import kr.wolfool.wolfemote.emote.BetterModelHook;
 import kr.wolfool.wolfemote.emote.EmoteExecutor;
 import kr.wolfool.wolfemote.model.Emote;
 import net.kyori.adventure.text.minimessage.MiniMessage;
@@ -23,6 +24,7 @@ public class WolfEmote extends JavaPlugin implements Listener {
     private static WolfEmote instance;
     private final Map<String, Emote> emotes = new LinkedHashMap<>();
     private EmoteExecutor executor;
+    private BetterModelHook betterModelHook;
     private final MiniMessage miniMessage = MiniMessage.miniMessage();
 
     @Override
@@ -32,6 +34,7 @@ public class WolfEmote extends JavaPlugin implements Listener {
         loadEmotes();
 
         executor = new EmoteExecutor(this);
+        betterModelHook = new BetterModelHook(getLogger());
 
         var cmd = getCommand("emote");
         if (cmd != null) {
@@ -87,9 +90,11 @@ public class WolfEmote extends JavaPlugin implements Listener {
 
                 String sound = e.getString("sound", "");
                 int duration = e.getInt("duration", 30);
+                String modelId = e.getString("model-id", "");
+                String animation = e.getString("animation", "");
 
                 emotes.put(key, new Emote(key, display, type, permission, material,
-                        description, particle, sound, duration));
+                        description, particle, sound, duration, modelId, animation));
             } catch (Exception ex) {
                 getLogger().warning("이모트 로드 실패: " + key);
             }
@@ -177,4 +182,5 @@ public class WolfEmote extends JavaPlugin implements Listener {
     public static WolfEmote getInstance() { return instance; }
     public Map<String, Emote> getEmotes() { return emotes; }
     public EmoteExecutor getExecutor() { return executor; }
+    public BetterModelHook getBetterModelHook() { return betterModelHook; }
 }
