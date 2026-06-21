@@ -1,0 +1,126 @@
+# WolfEmote Configuration
+
+# Emote cooldown in seconds
+cooldown: 3
+
+# Emote definitions
+# type: SIT, WAVE, DANCE, BOW, CRY, LAUGH, POINT, SLEEP, CLAP, FACEPALM
+# permission: Required permission (empty = wolfemote.use)
+# particle: Particle effect
+# sound: Sound to play
+# duration: Duration in ticks (for animated emotes)
+emotes:
+  sit:
+    display: "앉기"
+    type: SIT
+    permission: ""
+    material: OAK_STAIRS
+    description: "바닥에 앉습니다"
+    particle: NONE
+    sound: ""
+    duration: 0
+
+  wave:
+    display: "인사"
+    type: WAVE
+    permission: ""
+    material: PLAYER_HEAD
+    description: "손을 흔들어 인사합니다"
+    particle: HEART
+    sound: "minecraft:entity.villager.ambient"
+    duration: 30
+
+  dance:
+    display: "춤추기"
+    type: DANCE
+    permission: ""
+    material: NOTE_BLOCK
+    description: "신나게 춤을 춥니다"
+    particle: NOTE
+    sound: "minecraft:block.note_block.bell"
+    duration: 60
+
+  bow:
+    display: "인사(절)"
+    type: BOW
+    permission: ""
+    material: GOLDEN_HELMET
+    description: "공손하게 인사합니다"
+    particle: NONE
+    sound: ""
+    duration: 25
+
+  cry:
+    display: "울기"
+    type: CRY
+    permission: ""
+    material: GHAST_TEAR
+    description: "슬프게 울습니다"
+    particle: DRIPPING_WATER
+    sound: "minecraft:entity.villager.no"
+    duration: 40
+
+  laugh:
+    display: "웃기"
+    type: LAUGH
+    permission: ""
+    material: SUNFLOWER
+    description: "크게 웃습니다"
+    particle: HAPPY_VILLAGER
+    sound: "minecraft:entity.villager.celebrate"
+    duration: 30
+
+  point:
+    display: "가리키기"
+    type: POINT
+    permission: ""
+    material: ARROW
+    description: "바라보는 방향을 가리킵니다"
+    particle: CRIT
+    sound: ""
+    duration: 20
+
+  sleep:
+    display: "잠자기"
+    type: SLEEP
+    permission: ""
+    material: RED_BED
+    description: "바닥에 누워 잡니다"
+    particle: NONE
+    sound: ""
+    duration: 0
+
+  clap:
+    display: "박수"
+    type: CLAP
+    permission: ""
+    material: BELL
+    description: "박수를 칩니다"
+    particle: FIREWORK
+    sound: "minecraft:entity.experience_orb.pickup"
+    duration: 30
+
+  facepalm:
+    display: "한심"
+    type: FACEPALM
+    permission: ""
+    material: BARRIER
+    description: "한심한 표정을 짓습니다"
+    particle: SMOKE
+    sound: "minecraft:entity.villager.hurt"
+    duration: 20
+
+# GUI settings
+gui:
+  title: "이모트 선택"
+  rows: 2
+
+# Messages
+messages:
+  playing: "<yellow>{player}님이 <white>{emote}</white> 이모트를 사용했습니다!</yellow>"
+  sitting: "<green>앉았습니다. 움직이면 일어납니다.</green>"
+  sleeping: "<green>눕습니다. 움직이면 일어납니다.</green>"
+  stand-up: "<yellow>일어났습니다.</yellow>"
+  cooldown: "<red>쿨타임 중입니다! ({time}초 남음)</red>"
+  no-permission: "<red>이 이모트를 사용할 권한이 없습니다.</red>"
+  reloaded: "<green>WolfEmote 설정이 리로드되었습니다.</green>"

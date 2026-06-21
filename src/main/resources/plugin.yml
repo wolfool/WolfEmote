@@ -1,0 +1,18 @@
+name: WolfEmote
+version: ${version}
+main: kr.wolfool.wolfemote.WolfEmote
+api-version: '1.21'
+authors: [wolfool]
+description: Emote system with sit, dance, wave and more
+commands:
+  emote:
+    description: Play an emote
+    usage: /<command> [emote_name]
+    aliases: [이모트, em]
+permissions:
+  wolfemote.use:
+    description: Use emotes
+    default: true
+  wolfemote.admin:
+    description: Admin commands
+    default: op
